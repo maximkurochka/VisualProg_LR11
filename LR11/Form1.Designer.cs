@@ -66,6 +66,7 @@ namespace LR11
             this.addDataButton.TabIndex = 0;
             this.addDataButton.Text = "Ввод данных";
             this.addDataButton.UseVisualStyleBackColor = true;
+            this.addDataButton.Click += new System.EventHandler(this.addDataButton_Click);
             // 
             // searchDataButton
             // 
@@ -75,6 +76,7 @@ namespace LR11
             this.searchDataButton.TabIndex = 1;
             this.searchDataButton.Text = "Поиск данных";
             this.searchDataButton.UseVisualStyleBackColor = true;
+            this.searchDataButton.Click += new System.EventHandler(this.searchDataButton_Click);
             // 
             // mainDataGroupBox
             // 

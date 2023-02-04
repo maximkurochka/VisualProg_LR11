@@ -10,6 +10,13 @@ using System.Windows.Forms;
 
 namespace LR11
 {
+    enum UpdateMainFormMode
+    {
+        HideAll,
+        OpenAddData,
+        OpenSearchData
+    }
+
     public partial class MainForm : Form
     {
         private static List<char> mBirthGoodSymbols = new List<char>()
@@ -20,6 +27,66 @@ namespace LR11
         public MainForm()
         {
             InitializeComponent();
+
+            UpdateMainForm(UpdateMainFormMode.HideAll);
+        }
+
+        private void CleanUpAllControls()
+        {
+            fioTextBox.Text = "";
+            birthTextBox.Text = "";
+            streetTextBox.Text = "";
+            houseTextBox.Text = "";
+            flatTextBox.Text = "";
+            squareTextBox.Text = "";
+
+            maleRadioButton.Checked = true;
+
+            searchResultListBox.Items.Clear();
+        }
+
+        private void UpdateMainForm(UpdateMainFormMode updateMode)
+        {
+            CleanUpAllControls();
+
+            switch (updateMode)
+            {
+                case UpdateMainFormMode.OpenAddData:
+                    actionButton.Text = "Добавить";
+
+                    mainDataGroupBox.Visible = true;
+                    addDataGroupBox.Visible = true;
+                    generalButtonsGroupBox.Visible = true;
+                    searchResultListBox.Visible = true; 
+                    break;
+
+                case UpdateMainFormMode.OpenSearchData:
+                    actionButton.Text = "Искать";
+
+                    mainDataGroupBox.Visible = true;
+                    addDataGroupBox.Visible = false;
+                    generalButtonsGroupBox.Visible = true;
+                    searchResultListBox.Visible = true;
+                    break;
+
+                case UpdateMainFormMode.HideAll:
+                default:
+                    mainDataGroupBox.Visible = false;
+                    addDataGroupBox.Visible = false;
+                    generalButtonsGroupBox.Visible = false;
+                    searchResultListBox.Visible = false;
+                    break;
+            }
+        }
+
+        private void addDataButton_Click(object sender, EventArgs e)
+        {
+            UpdateMainForm(UpdateMainFormMode.OpenAddData);
+        }
+
+        private void searchDataButton_Click(object sender, EventArgs e)
+        {
+            UpdateMainForm(UpdateMainFormMode.OpenSearchData);
         }
     }
 }
