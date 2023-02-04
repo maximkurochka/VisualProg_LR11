@@ -267,6 +267,7 @@ namespace LR11
             this.revertButton.TabIndex = 6;
             this.revertButton.Text = "Отменить";
             this.revertButton.UseVisualStyleBackColor = true;
+            this.revertButton.Click += new System.EventHandler(this.revertButton_Click);
             // 
             // closeButton
             // 
@@ -276,6 +277,7 @@ namespace LR11
             this.closeButton.TabIndex = 7;
             this.closeButton.Text = "Закрыть";
             this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // generalButtonsGroupBox
             // 

@@ -108,5 +108,15 @@ namespace LR11
         {
             e.Handled = mFlatSymbols.TrueForAll(allowedSymbol => (e.KeyChar != allowedSymbol));
         }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            UpdateMainForm(UpdateMainFormMode.HideAll);
+        }
+
+        private void revertButton_Click(object sender, EventArgs e)
+        {
+            CleanUpAllControls();
+        }
     }
 }
