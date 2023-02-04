@@ -10,9 +10,14 @@ using System.Windows.Forms;
 
 namespace LR11
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        private static List<char> mBirthGoodSymbols = new List<char>()
+        {
+            '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.'
+        };
+
+        public MainForm()
         {
             InitializeComponent();
         }
