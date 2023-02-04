@@ -19,9 +19,14 @@ namespace LR11
 
     public partial class MainForm : Form
     {
-        private static List<char> mBirthGoodSymbols = new List<char>()
+        private static List<char> mBirthAndSquareAllowSymbols = new List<char>()
         {
             '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.'
+        };
+
+        private static List<char> mFlatSymbols = new List<char>()
+        {
+            '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'
         };
 
         public MainForm()
@@ -87,6 +92,21 @@ namespace LR11
         private void searchDataButton_Click(object sender, EventArgs e)
         {
             UpdateMainForm(UpdateMainFormMode.OpenSearchData);
+        }
+
+        private void birthTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = mBirthAndSquareAllowSymbols.TrueForAll(allowedSymbol => (e.KeyChar != allowedSymbol));
+        }
+
+        private void squareTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = mBirthAndSquareAllowSymbols.TrueForAll(allowedSymbol => (e.KeyChar != allowedSymbol));
+        }
+
+        private void flatTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = mFlatSymbols.TrueForAll(allowedSymbol => (e.KeyChar != allowedSymbol));
         }
     }
 }

@@ -118,6 +118,7 @@ namespace LR11
             this.birthTextBox.Name = "birthTextBox";
             this.birthTextBox.Size = new System.Drawing.Size(159, 22);
             this.birthTextBox.TabIndex = 11;
+            this.birthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.birthTextBox_KeyPress);
             // 
             // femaleRadioButton
             // 
@@ -212,6 +213,7 @@ namespace LR11
             this.flatTextBox.Name = "flatTextBox";
             this.flatTextBox.Size = new System.Drawing.Size(190, 22);
             this.flatTextBox.TabIndex = 4;
+            this.flatTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.flatTextBox_KeyPress);
             // 
             // squareTextBox
             // 
@@ -219,6 +221,7 @@ namespace LR11
             this.squareTextBox.Name = "squareTextBox";
             this.squareTextBox.Size = new System.Drawing.Size(147, 22);
             this.squareTextBox.TabIndex = 5;
+            this.squareTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.squareTextBox_KeyPress);
             // 
             // label7
             // 
