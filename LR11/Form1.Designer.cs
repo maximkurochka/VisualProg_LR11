@@ -53,9 +53,13 @@ namespace LR11
             this.revertButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
             this.generalButtonsGroupBox = new System.Windows.Forms.GroupBox();
+            this.searchKeyComboBox = new System.Windows.Forms.ComboBox();
+            this.searchDataGroupBox = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.mainDataGroupBox.SuspendLayout();
             this.addDataGroupBox.SuspendLayout();
             this.generalButtonsGroupBox.SuspendLayout();
+            this.searchDataGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // addDataButton
@@ -115,6 +119,7 @@ namespace LR11
             // birthTextBox
             // 
             this.birthTextBox.Location = new System.Drawing.Point(129, 107);
+            this.birthTextBox.MaxLength = 10;
             this.birthTextBox.Name = "birthTextBox";
             this.birthTextBox.Size = new System.Drawing.Size(159, 22);
             this.birthTextBox.TabIndex = 11;
@@ -245,9 +250,9 @@ namespace LR11
             // 
             this.searchResultListBox.FormattingEnabled = true;
             this.searchResultListBox.ItemHeight = 16;
-            this.searchResultListBox.Location = new System.Drawing.Point(338, 12);
+            this.searchResultListBox.Location = new System.Drawing.Point(6, 62);
             this.searchResultListBox.Name = "searchResultListBox";
-            this.searchResultListBox.Size = new System.Drawing.Size(450, 388);
+            this.searchResultListBox.Size = new System.Drawing.Size(438, 324);
             this.searchResultListBox.TabIndex = 4;
             // 
             // actionButton
@@ -258,6 +263,7 @@ namespace LR11
             this.actionButton.TabIndex = 5;
             this.actionButton.Text = "button";
             this.actionButton.UseVisualStyleBackColor = true;
+            this.actionButton.Click += new System.EventHandler(this.actionButton_Click);
             // 
             // revertButton
             // 
@@ -290,13 +296,49 @@ namespace LR11
             this.generalButtonsGroupBox.TabIndex = 8;
             this.generalButtonsGroupBox.TabStop = false;
             // 
+            // searchKeyComboBox
+            // 
+            this.searchKeyComboBox.FormattingEnabled = true;
+            this.searchKeyComboBox.Items.AddRange(new object[] {
+            "ФИО",
+            "Пол",
+            "Дата рождения",
+            "Улица",
+            "Дом"});
+            this.searchKeyComboBox.Location = new System.Drawing.Point(137, 21);
+            this.searchKeyComboBox.Name = "searchKeyComboBox";
+            this.searchKeyComboBox.Size = new System.Drawing.Size(307, 24);
+            this.searchKeyComboBox.TabIndex = 9;
+            this.searchKeyComboBox.SelectedIndexChanged += new System.EventHandler(this.searchKeyComboBox_SelectedIndexChanged);
+            // 
+            // searchDataGroupBox
+            // 
+            this.searchDataGroupBox.Controls.Add(this.label8);
+            this.searchDataGroupBox.Controls.Add(this.searchResultListBox);
+            this.searchDataGroupBox.Controls.Add(this.searchKeyComboBox);
+            this.searchDataGroupBox.Location = new System.Drawing.Point(337, 12);
+            this.searchDataGroupBox.Name = "searchDataGroupBox";
+            this.searchDataGroupBox.Size = new System.Drawing.Size(450, 392);
+            this.searchDataGroupBox.TabIndex = 14;
+            this.searchDataGroupBox.TabStop = false;
+            this.searchDataGroupBox.Text = "Поисковые данные";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 24);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(125, 17);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Ключ для поиска:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 484);
+            this.Controls.Add(this.searchDataGroupBox);
             this.Controls.Add(this.generalButtonsGroupBox);
-            this.Controls.Add(this.searchResultListBox);
             this.Controls.Add(this.addDataGroupBox);
             this.Controls.Add(this.mainDataGroupBox);
             this.Controls.Add(this.searchDataButton);
@@ -307,6 +349,8 @@ namespace LR11
             this.addDataGroupBox.ResumeLayout(false);
             this.addDataGroupBox.PerformLayout();
             this.generalButtonsGroupBox.ResumeLayout(false);
+            this.searchDataGroupBox.ResumeLayout(false);
+            this.searchDataGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -337,6 +381,9 @@ namespace LR11
         private System.Windows.Forms.Button revertButton;
         private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.GroupBox generalButtonsGroupBox;
+        private System.Windows.Forms.ComboBox searchKeyComboBox;
+        private System.Windows.Forms.GroupBox searchDataGroupBox;
+        private System.Windows.Forms.Label label8;
     }
 }
 
